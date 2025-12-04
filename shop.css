@@ -110,7 +110,24 @@ h1 {
     .category-item {
         flex: 1 1 100px;
     }
+    .img{
+        margin-right: 2rem;
 
+    }
+    .top-deals {
+    grid-template-columns: repeat(1, 1fr); 
+      gap: 20px; /* mobile = 1 card */
+  }
+ 
+  .card img {
+    width: 100px;
+    margin-right: 40px;
+  }
+  .card .img1{
+    width: 100px;
+   margin-left: 60px;
+  }
+}
     .category-item img {
         width: 60px;
         height: 60px;
@@ -145,3 +162,4 @@ h1 {
     /* Hide Scrollbar on mobile */
     .category-container::-webkit-scrollbar {
         display: none;
+    }}
