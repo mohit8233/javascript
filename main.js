@@ -64,3 +64,5 @@ hamburger.addEventListener("click", ()=>{
     // 👉 AUTO SLIDER (Every 3 Seconds)
     setInterval(nextImg, 3000);  // Auto change every 3 seconds
 
+
+    
