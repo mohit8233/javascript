@@ -5,26 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="./shop.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <style>
+        /* GENERAL */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f5f5f5;
+            background: #ffffff;
             padding: 10px;
             text-align: center;
-            /* margin-top: 5rem; */
-
         }
 
-        h1 {
+        h2 {
             margin-top: 1rem;
         }
 
-        /* Category Buttons */
+        /* CATEGORY BUTTONS — SAME AS BEFORE */
         .categories {
             display: flex;
             flex-wrap: wrap;
@@ -48,56 +47,71 @@
             background: #444;
         }
 
-        /* Product Grid */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        button a {
+            color: white;
+            text-decoration: none;
         }
 
+        /* ===============================
+          PRODUCT GRID (MAIN RESPONSIVE FIX)
+           =============================== */
+        #products-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Desktop */
+            gap: 20px;
+            padding: 10px;
+        }
+
+        /* PRODUCT CARD */
         .product-card {
-            background: white;
-            padding: 15px;
+            background: #fff;
+            padding: 12px;
             border-radius: 10px;
             text-align: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .product-card img {
-            width: 140px;
-            height: auto;
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
         }
 
-        /* Product Details */
-        .product-details {
-            display: none;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
+        .product-card h3 {
+            font-size: 13px;
+            margin: 6px 0 3px;
         }
 
-        .product-details img {
-            width: 260px;
+        .product-card p {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
         }
 
-        .back-btn {
-            padding: 10px 20px;
-            background: #222;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        @media(max-width: 768px) {
-            .products {
+        /* ===============================
+                   MOBILE — 2 Boxes
+           =============================== */
+        @media (max-width: 600px) {
+            #products-container {
                 grid-template-columns: repeat(2, 1fr);
+                /* 2 cards */
+                gap: 15px;
             }
 
             .product-card img {
-                width: 100px;
+                height: 120px;
+            }
+        }
+
+        /* ===============================
+             TABLET — 3 Boxes
+          =============================== */
+        @media (min-width: 600px) and (max-width: 900px) {
+            #products-container {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -149,36 +163,249 @@
         <div id="container">
             <img id="img1" src="">
         </div>
-         
+
 
     </section>
-
-       <h1 id="category-title">Select a Category</h1>
-  
-<div class="categories">
-    <button onclick="loadCategory('all')">All</button>
-    <button onclick="loadCategory('samsung')">Samsung</button>
-    <button onclick="loadCategory('apple')">Apple</button>
-    <button onclick="loadCategory('vivo')">Vivo</button>
-    <button onclick="loadCategory('oppo')">Oppo</button>
-    <button onclick="loadCategory('xiaomi')">Xiaomi</button>
-    <button onclick="loadCategory('realme')">Realme</button>
-    <button onclick="loadCategory('oneplus')">OnePlus</button>
-</div>
-
-<!-- PRODUCT LIST  -->
-<div id="product-list">
-  
-    <div class="products" id="products-container"></div>
-</div>
-
-<!-- PRODUCT DETAILS  -->
-<div id="details-page" class="product-details"></div>
- 
+    <section class="containers">
 
 
-<!-- footer  -->
- <footer class="section">
+        <h2 id="category-title">Select a Category</h2>
+        <div class="line">
+
+        </div>
+        <div class="categories">
+            <button style="color: white;"><a href="shop.html">Back</a></button>
+            <button onclick="loadCategory('all')">All</button>
+            <button onclick="loadCategory('samsung')">Samsung</button>
+            <button onclick="loadCategory('apple')">Apple</button>
+            <button onclick="loadCategory('vivo')">Vivo</button>
+            <button onclick="loadCategory('oppo')">Oppo</button>
+            <button onclick="loadCategory('xiaomi')">Xiaomi</button>
+            <button onclick="loadCategory('realme')">Realme</button>
+            <button onclick="loadCategory('oneplus')">OnePlus</button>
+        </div>
+
+        <!-- PRODUCT LIST  -->
+        <div id="product-list">
+
+            <div class="products" id="products-container"></div>
+        </div>
+
+        <!-- PRODUCT DETAILS  -->
+        <div id="details-page" class="product-details"></div>
+
+
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2>New Launch</h2>
+            <div class="line">
+
+            </div>
+            <div class="card-container  flex wrap">
+                <div class="card">
+                    <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/apple-tv-4k-hero-select-202210_FMT_WHH?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1664896361164"
+                        alt="">
+                    <div class="card-content">
+                        <p class="title">
+                            Apple TV WiFi
+                        </p>
+                        <div class="price">
+                            <span class="amount">$100.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card sale">
+                    <img class="img" src="https://m.media-amazon.com/images/I/71JSb5HQKDL._AC_SY625_.jpg" alt="">
+                    <div class="card-content">
+                        <p class="title">
+                            nike shoes
+                        </p>
+                        <div class="price">
+                            <del>$150.00</del>
+                            <span class="amount">$100.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="img1"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFWYKGh7XS7mLvN-979p7Sxx3qBZvCGOqMzw&s"
+                        alt="">
+                    <div class="card-content">
+                        <p class="title">
+                            Apple I Phone 17
+                        </p>
+                        <div class="price">
+                            <!-- <del>$150.00</del> -->
+                            <span class="amount">$100.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="img1" src="https://i.ebayimg.com/images/g/YN8AAOSwvRhnB0TP/s-l1200.jpg" alt="">
+                    <div class="card-content">
+                        <p class="title">
+                            Boat Airpods
+                        </p>
+                        <div class="price">
+                            <!-- <del>$150.00</del> -->
+                            <span class="amount">$100.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container container flex wrap">
+            <div class="card">
+                <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/apple-tv-4k-hero-select-202210_FMT_WHH?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1664896361164"
+                    alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Apple TV WiFi
+                    </p>
+                    <div class="price">
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card sale">
+                <img class="img" src="https://m.media-amazon.com/images/I/71JSb5HQKDL._AC_SY625_.jpg" alt="">
+                <div class="card-content">
+                    <p class="title">
+                        nike shoes
+                    </p>
+                    <div class="price">
+                        <del>$150.00</del>
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img1"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFWYKGh7XS7mLvN-979p7Sxx3qBZvCGOqMzw&s"
+                    alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Apple I Phone 17
+                    </p>
+                    <div class="price">
+                        <!-- <del>$150.00</del> -->
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img1" src="https://i.ebayimg.com/images/g/YN8AAOSwvRhnB0TP/s-l1200.jpg" alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Boat Airpods
+                    </p>
+                    <div class="price">
+                        <!-- <del>$150.00</del> -->
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="card-container container flex wrap">
+            <div class="card">
+                <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/apple-tv-4k-hero-select-202210_FMT_WHH?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1664896361164"
+                    alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Apple TV WiFi
+                    </p>
+                    <div class="price">
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card sale">
+                <img class="img" src="https://m.media-amazon.com/images/I/71JSb5HQKDL._AC_SY625_.jpg" alt="">
+                <div class="card-content">
+                    <p class="title">
+                        nike shoes
+                    </p>
+                    <div class="price">
+                        <del>$150.00</del>
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img1"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFWYKGh7XS7mLvN-979p7Sxx3qBZvCGOqMzw&s"
+                    alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Apple I Phone 17
+                    </p>
+                    <div class="price">
+                        <!-- <del>$150.00</del> -->
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img1" src="https://i.ebayimg.com/images/g/YN8AAOSwvRhnB0TP/s-l1200.jpg" alt="">
+                <div class="card-content">
+                    <p class="title">
+                        Boat Airpods
+                    </p>
+                    <div class="price">
+                        <!-- <del>$150.00</del> -->
+                        <span class="amount">$100.00</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="section ">
+        <div class="secondary-bg">
+            <form class="container flex wrap">
+                <h3>Sign uo for Send NewsLetter</h3>
+
+                <div class="input-container flex">
+                    <input type="email" name="email" id="email" placeholder="Your Email" autocomplete="off">
+                    <button>Subscribe</button>
+                </div>
+
+                <div class="social-icons flex">
+                    <a href="#" class="media">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="media">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="media">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+                    <a href="#" class="media">
+                        <i class="fa-brands fa-behance"></i>
+                    </a>
+                    <a href="#" class="media">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- footer  -->
+    <footer class="section">
         <div class=" footer-container container flex wrap">
             <ul class="footer-list ">
                 <li>
@@ -252,159 +479,159 @@
     <script src="main.js"></script>
     <script>
         /* 📌 7 CATEGORIES + 12-12 PHONES + ALL CATEGORY */
-const products = {
+        const products = {
 
-    all: [],  
+            all: [],
 
-    samsung: [
-        {id:1, name:"Samsung S24 Ultra", price:129999, ram:"12GB", image:"", desc:"Latest Samsung flagship"},
-        {id:2, name:"Samsung S23 Ultra", price:99999, ram:"12GB", image:"", desc:"Flagship beast"},
-        {id:3, name:"Samsung S22 Ultra", price:74999, ram:"12GB", image:"", desc:"Amazing camera phone"},
-        {id:4, name:"Samsung S21 FE", price:45999, ram:"8GB", image:"htt", desc:"Fan Edition"},
-        {id:5, name:"Samsung A55", price:32999, ram:"8GB", image:"htt", desc:"Best mid-range"},
-        {id:6, name:"Samsung A35", price:26999, ram:"6GB", image:"htt", desc:"Budget king"},
-        {id:7, name:"Samsung A15", price:16499, ram:"4GB", image:"htt", desc:"Value for money"},
-        {id:8, name:"Samsung M34", price:16999, ram:"6GB", image:"htt", desc:"6000mAh battery"},
-        {id:9, name:"Samsung M14", price:12999, ram:"4GB", image:"htt", desc:"Budget phone"},
-        {id:10, name:"Samsung F54", price:29999, ram:"8GB", image:"htt", desc:"Premium design"},
-        {id:11, name:"Samsung F34", price:18999, ram:"6GB", image:"htt", desc:"Best for students"},
-        {id:12, name:"Samsung M04", price:8999, ram:"4GB", image:"htt", desc:"Entry-level"},
-    ],
+            samsung: [
+                { id: 1, name: "Samsung S25 Ultra", price: 129999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/t/d/o/-original-imahgfmztybfugwr.jpeg?q=70", desc: "Latest Samsung flagship" },
+                { id: 2, name: "Samsung S24 Ultra", price: 99999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/m/z/-original-imahgfmxumntk7sy.jpeg?q=70", desc: "Flagship beast" },
+                { id: 3, name: "Samsung  s25", price: 88999, ram: "12GB", image: "", desc: "Amazing camera phone" },
+                { id: 4, name: "Samsung S25 FE", price: 75999, ram: "8GB", image: "htt", desc: "Fan Edition" },
+                { id: 5, name: "Samsung A55", price: 32999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Best mid-range" },
+                { id: 6, name: "Samsung A35", price: 26999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Budget king" },
+                { id: 7, name: "Samsung A15", price: 16499, ram: "4GB", image: "htt", desc: "Value for money" },
+                { id: 8, name: "Samsung M34", price: 16999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "6000mAh battery" },
+                { id: 9, name: "Samsung M14", price: 12999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "Budget phone" },
+                { id: 10, name: "Samsung F54", price: 29999, ram: "8GB", image: "", desc: "Premium design" },
+                { id: 11, name: "Samsung F34", price: 18999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Best for students" },
+                { id: 12, name: "Samsung M04", price: 8999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "Entry-level" },
+            ],
 
-    apple: [
-        {id:1, name:"iPhone 15 Pro Max", price:159999, ram:"8GB", image:"htt", desc:"Titanium body"},
-        {id:2, name:"iPhone 15 Pro", price:134999, ram:"8GB", image:"htt", desc:"A17 Pro chip"},
-        {id:3, name:"iPhone 15", price:79999, ram:"6GB", image:"htt", desc:"Dynamic island"},
-        {id:4, name:"iPhone 14", price:64999, ram:"6GB", image:"htt", desc:"Value flagship"},
-        {id:5, name:"iPhone 13", price:52999, ram:"4GB", image:"htt", desc:"Evergreen model"},
-        {id:6, name:"iPhone 12", price:41999, ram:"4GB", image:"htt", desc:"Slim design"},
-        {id:7, name:"iPhone 11", price:38999, ram:"4GB", image:"htt", desc:"Best budget iPhone"},
-        {id:8, name:"iPhone SE", price:29999, ram:"4GB", image:"htt", desc:"Compact phone"},
-        {id:9, name:"iPhone XR", price:24999, ram:"3GB", image:"htt", desc:"Liquid Retina"},
-        {id:10, name:"iPhone XS", price:22999, ram:"4GB", image:"htt", desc:"OLED display"},
-        {id:11, name:"iPhone XS Max", price:24999, ram:"4GB", image:"htt", desc:"Big display"},
-        {id:12, name:"iPhone X", price:19999, ram:"3GB", image:"htt", desc:"Iconic model"},
-    ],
+            apple: [
+                { id: 1, name: "iPhone 17 Pro Max", price: 159999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/v/a/-original-imahft5nxmyqndhf.jpeg?q=70", desc: "Titanium body" },
+                { id: 2, name: "iPhone 16 Pro", price: 134999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/v/a/b/-original-imahggexextjawug.jpeg?q=70", desc: "A18 Pro chip" },
+                { id: 3, name: "iPhone 15", price: 79999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/c/k/-original-imagtc5fuzkvczr7.jpeg?q=70", desc: "Dynamic island" },
+                { id: 4, name: "iPhone 14", price: 64999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/b/u/f/-original-imaghxa5hvapbfds.jpeg?q=70", desc: "Value flagship" },
+                { id: 5, name: "iPhone 13", price: 52999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/ktketu80/mobile/6/n/d/iphone-13-mlpg3hn-a-apple-original-imag6vpyghayhhrh.jpeg?q=70", desc: "Evergreen model" },
+                { id: 6, name: "iPhone 12", price: 41999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/kg8avm80/mobile/y/7/n/apple-iphone-12-dummyapplefsn-original-imafwg8dpyjvgg3j.jpeg?q=70", desc: "Slim design" },
+                { id: 7, name: "iPhone 11", price: 38999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/k2jbyq80pkrrdj/mobile-refurbished/x/j/s/iphone-11-128-d-mwm02hn-a-apple-0-original-imafkg242ugz8hwc.jpeg?q=70", desc: "Best budget iPhone" },
+                { id: 8, name: "iPhone SE", price: 29999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/k9loccw0/mobile/6/b/z/apple-iphone-se-mxd12hn-a-original-imafrcqf9nze6evk.jpeg?q=70", desc: "Compact phone" },
+                { id: 9, name: "iPhone 17", price: 124999, ram: "16GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/c/v/v/-original-imahgfmypevfehpc.jpeg?q=70", desc: "Liquid Retina" },
+                { id: 10, name: "iPhone Air", price: 122999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/r/w/-original-imahft57defk9qtu.jpeg?q=70", desc: "OLED display" },
+                { id: 11, name: "iPhone 16 Pro Max", price: 124999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/r/8/8/-original-imahggevcrkzezzv.jpeg?q=70", desc: "Big display" },
+                { id: 12, name: "iPhone 16E ", price: 53999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/1/p/c/-original-imah9khhnfvstqka.jpeg?q=70", desc: "Iconic model" },
+            ],
 
-    vivo: [
-        {id:1, name:"Vivo X100 Pro", price:89999, ram:"12GB", image:"", desc:"Zeiss camera"},
-        {id:2, name:"Vivo X90", price:59999, ram:"12GB", image:"", desc:"Flagship"},
-        {id:3, name:"Vivo V30 Pro", price:33999, ram:"8GB", image:"", desc:"Premium"},
-        {id:4, name:"Vivo V29", price:28999, ram:"8GB", image:"", desc:"Aura light"},
-        {id:5, name:"Vivo V27", price:24999, ram:"8GB", image:"", desc:"Stylish"},
-        {id:6, name:"Vivo Y200", price:21999, ram:"8GB", image:"", desc:"Great selfie"},
-        {id:7, name:"Vivo Y100", price:18999, ram:"6GB", image:"", desc:"Color changing"},
-        {id:8, name:"Vivo Y36", price:14999, ram:"8GB", image:"", desc:"90Hz display"},
-        {id:9, name:"Vivo Y27", price:12999, ram:"6GB", image:"", desc:"Battery king"},
-        {id:10, name:"Vivo Y21", price:10999, ram:"4GB", image:"", desc:"Slim design"},
-        {id:11, name:"Vivo Y16", price:9499, ram:"4GB", image:"", desc:"Entry level"},
-        {id:12, name:"Vivo Y02", price:7499, ram:"3GB", image:"", desc:"Budget"},
-    ],
+            vivo: [
+                { id: 1, name: "Vivo X100 Pro", price: 89999, ram: "12GB", image: "", desc: "Zeiss camera" },
+                { id: 2, name: "Vivo X90", price: 59999, ram: "12GB", image: "", desc: "Flagship" },
+                { id: 3, name: "Vivo V30 Pro", price: 33999, ram: "8GB", image: "", desc: "Premium" },
+                { id: 4, name: "Vivo V29", price: 28999, ram: "8GB", image: "", desc: "Aura light" },
+                { id: 5, name: "Vivo V27", price: 24999, ram: "8GB", image: "", desc: "Stylish" },
+                { id: 6, name: "Vivo Y200", price: 21999, ram: "8GB", image: "", desc: "Great selfie" },
+                { id: 7, name: "Vivo Y100", price: 18999, ram: "6GB", image: "", desc: "Color changing" },
+                { id: 8, name: "Vivo Y36", price: 14999, ram: "8GB", image: "", desc: "90Hz display" },
+                { id: 9, name: "Vivo Y27", price: 12999, ram: "6GB", image: "", desc: "Battery king" },
+                { id: 10, name: "Vivo Y21", price: 10999, ram: "4GB", image: "", desc: "Slim design" },
+                { id: 11, name: "Vivo Y16", price: 9499, ram: "4GB", image: "", desc: "Entry level" },
+                { id: 12, name: "Vivo Y02", price: 7499, ram: "3GB", image: "", desc: "Budget" },
+            ],
 
-    oppo: [
-        {id:1, name:"Oppo Reno 11 Pro", price:39999, ram:"12GB", image:"", desc:"Portrait king"},
-        {id:2, name:"Oppo Reno 10", price:32999, ram:"8GB", image:"", desc:"Premium design"},
-        {id:4, name:"Oppo F21 Pro", price:17999, ram:"8GB", image:"", desc:"Best camera"},
-        {id:3, name:"Oppo F25 Pro", price:22999, ram:"8GB", image:"", desc:"Fast charging"},
-        {id:5, name:"Oppo A79", price:16999, ram:"8GB", image:"", desc:"Smooth UI"},
-        {id:6, name:"Oppo A78", price:15999, ram:"8GB", image:"", desc:"Super VOOC"},
-        {id:7, name:"Oppo A59", price:13999, ram:"6GB", image:"", desc:"Great battery"},
-        {id:8, name:"Oppo A38", price:12499, ram:"4GB", image:"", desc:"90Hz display"},
-        {id:9, name:"Oppo A18", price:10999, ram:"4GB", image:"", desc:"Budget option"},
-        {id:10, name:"Oppo A17", price:9999, ram:"4GB", image:"", desc:"Premium look"},
-        {id:11, name:"Oppo A16", price:8999, ram:"3GB", image:"", desc:"Affordable"},
-        {id:12, name:"Oppo A15", price:7999, ram:"3GB", image:"", desc:"Basic model"},
-    ],
+            oppo: [
+                { id: 1, name: "Oppo Reno 11 Pro", price: 39999, ram: "12GB", image: "", desc: "Portrait king" },
+                { id: 2, name: "Oppo Reno 10", price: 32999, ram: "8GB", image: "", desc: "Premium design" },
+                { id: 4, name: "Oppo F21 Pro", price: 17999, ram: "8GB", image: "", desc: "Best camera" },
+                { id: 3, name: "Oppo F25 Pro", price: 22999, ram: "8GB", image: "", desc: "Fast charging" },
+                { id: 5, name: "Oppo A79", price: 16999, ram: "8GB", image: "", desc: "Smooth UI" },
+                { id: 6, name: "Oppo A78", price: 15999, ram: "8GB", image: "", desc: "Super VOOC" },
+                { id: 7, name: "Oppo A59", price: 13999, ram: "6GB", image: "", desc: "Great battery" },
+                { id: 8, name: "Oppo A38", price: 12499, ram: "4GB", image: "", desc: "90Hz display" },
+                { id: 9, name: "Oppo A18", price: 10999, ram: "4GB", image: "", desc: "Budget option" },
+                { id: 10, name: "Oppo A17", price: 9999, ram: "4GB", image: "", desc: "Premium look" },
+                { id: 11, name: "Oppo A16", price: 8999, ram: "3GB", image: "", desc: "Affordable" },
+                { id: 12, name: "Oppo A15", price: 7999, ram: "3GB", image: "", desc: "Basic model" },
+            ],
 
-    xiaomi: [
-        {id:1, name:"Xiaomi 14 Ultra", price:99999, ram:"16GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Insane camera"},
-        {id:2, name:"Xiaomi 14", price:69999, ram:"12GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Flagship killer"},
-        {id:3, name:"Xiaomi 13 Pro", price:59999, ram:"12GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Leica camera"},
-        {id:4, name:"Xiaomi 12 Pro", price:44999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Premium feel"},
-        {id:5, name:"Xiaomi 11T Pro", price:34999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"120W charging"},
-        {id:6, name:"Redmi Note 13 Pro+", price:30999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Curved display"},
-        {id:7, name:"Redmi Note 13 Pro", price:24999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Best midrange"},
-        {id:8, name:"Redmi Note 12 Pro", price:20999, ram:"6GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Value for money"},
-        {id:9, name:"Poco X6 Pro", price:24999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Gaming beast"},
-        {id:10, name:"Poco X5 Pro", price:18999, ram:"8GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Great display"},
-        {id:11, name:"Poco M6 Pro", price:12999, ram:"4GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Budget"},
-        {id:12, name:"Redmi 12", price:9999, ram:"4GB", image:"https://i.imgur.com/1pZ0L7p.png", desc:"Stylish"},
-    ],
+            xiaomi: [
+                { id: 1, name: "Xiaomi 14 Ultra", price: 99999, ram: "16GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Insane camera" },
+                { id: 2, name: "Xiaomi 14", price: 69999, ram: "12GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Flagship killer" },
+                { id: 3, name: "Xiaomi 13 Pro", price: 59999, ram: "12GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Leica camera" },
+                { id: 4, name: "Xiaomi 12 Pro", price: 44999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Premium feel" },
+                { id: 5, name: "Xiaomi 11T Pro", price: 34999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "120W charging" },
+                { id: 6, name: "Redmi Note 13 Pro+", price: 30999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Curved display" },
+                { id: 7, name: "Redmi Note 13 Pro", price: 24999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Best midrange" },
+                { id: 8, name: "Redmi Note 12 Pro", price: 20999, ram: "6GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Value for money" },
+                { id: 9, name: "Poco X6 Pro", price: 24999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Gaming beast" },
+                { id: 10, name: "Poco X5 Pro", price: 18999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Great display" },
+                { id: 11, name: "Poco M6 Pro", price: 12999, ram: "4GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Budget" },
+                { id: 12, name: "Redmi 12", price: 9999, ram: "4GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Stylish" },
+            ],
 
-    realme: [
-        {id:1, name:"Realme GT 5 Pro", price:44999, ram:"12GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Flagship Realme"},
-        {id:2, name:"Realme GT Neo 5", price:37999, ram:"12GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Fastest charging"},
-        {id:3, name:"Realme 12 Pro+", price:28999, ram:"8GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Periscope camera"},
-        {id:4, name:"Realme 11 Pro+", price:24999, ram:"8GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Premium feel"},
-        {id:5, name:"Realme 10 Pro+", price:22999, ram:"8GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Curved screen"},
-        {id:6, name:"Realme Narzo 70 Pro", price:19999, ram:"8GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Fast charging"},
-        {id:7, name:"Realme Narzo 60 Pro", price:18999, ram:"8GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Best camera"},
-        {id:8, name:"Realme 11x", price:14999, ram:"6GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"5G budget"},
-        {id:9, name:"Realme C55", price:12999, ram:"6GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Mini capsule"},
-        {id:10, name:"Realme C53", price:10999, ram:"6GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Best under 12k"},
-        {id:11, name:"Realme C33", price:8999, ram:"4GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Budget option"},
-        {id:12, name:"Realme C30", price:7499, ram:"3GB", image:"https://i.imgur.com/UWcjjDW.png", desc:"Entry phone"},
-    ],
+            realme: [
+                { id: 1, name: "Realme GT 5 Pro", price: 44999, ram: "12GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Flagship Realme" },
+                { id: 2, name: "Realme GT Neo 5", price: 37999, ram: "12GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Fastest charging" },
+                { id: 3, name: "Realme 12 Pro+", price: 28999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Periscope camera" },
+                { id: 4, name: "Realme 11 Pro+", price: 24999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Premium feel" },
+                { id: 5, name: "Realme 10 Pro+", price: 22999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Curved screen" },
+                { id: 6, name: "Realme Narzo 70 Pro", price: 19999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Fast charging" },
+                { id: 7, name: "Realme Narzo 60 Pro", price: 18999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Best camera" },
+                { id: 8, name: "Realme 11x", price: 14999, ram: "6GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "5G budget" },
+                { id: 9, name: "Realme C55", price: 12999, ram: "6GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Mini capsule" },
+                { id: 10, name: "Realme C53", price: 10999, ram: "6GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Best under 12k" },
+                { id: 11, name: "Realme C33", price: 8999, ram: "4GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Budget option" },
+                { id: 12, name: "Realme C30", price: 7499, ram: "3GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Entry phone" },
+            ],
 
-    oneplus: [
-        {id:1, name:"OnePlus 12", price:69999, ram:"12GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Flagship killer"},
-        {id:2, name:"OnePlus 11", price:54999, ram:"12GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Hasselblad"},
-        {id:3, name:"OnePlus 10 Pro", price:38999, ram:"8GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Smooth UI"},
-        {id:4, name:"OnePlus 10T", price:34999, ram:"8GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Gaming phone"},
-        {id:5, name:"OnePlus Nord 3", price:29999, ram:"8GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Powerful"},
-        {id:6, name:"OnePlus Nord 2T", price:28999, ram:"8GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Mid-range star"},
-        {id:7, name:"OnePlus Nord CE 3", price:24999, ram:"8GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Value phone"},
-        {id:8, name:"OnePlus Nord CE 2", price:18999, ram:"6GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Good battery"},
-        {id:9, name:"OnePlus Nord CE 2 Lite", price:16999, ram:"6GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Great entry"},
-        {id:10, name:"OnePlus Nord CE", price:14999, ram:"6GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Affordable"},
-        {id:11, name:"OnePlus Nord N20", price:12999, ram:"4GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Budget"},
-        {id:12, name:"OnePlus Nord N10", price:11999, ram:"4GB", image:"https://i.imgur.com/18G4tqZ.png", desc:"Cheapest 5G"},
-    ]
-};
+            oneplus: [
+                { id: 1, name: "OnePlus 12", price: 69999, ram: "12GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Flagship killer" },
+                { id: 2, name: "OnePlus 11", price: 54999, ram: "12GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Hasselblad" },
+                { id: 3, name: "OnePlus 10 Pro", price: 38999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Smooth UI" },
+                { id: 4, name: "OnePlus 10T", price: 34999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Gaming phone" },
+                { id: 5, name: "OnePlus Nord 3", price: 29999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Powerful" },
+                { id: 6, name: "OnePlus Nord 2T", price: 28999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Mid-range star" },
+                { id: 7, name: "OnePlus Nord CE 3", price: 24999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Value phone" },
+                { id: 8, name: "OnePlus Nord CE 2", price: 18999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Good battery" },
+                { id: 9, name: "OnePlus Nord CE 2 Lite", price: 16999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Great entry" },
+                { id: 10, name: "OnePlus Nord CE", price: 14999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Affordable" },
+                { id: 11, name: "OnePlus Nord N20", price: 12999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Budget" },
+                { id: 12, name: "OnePlus Nord N10", price: 11999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Cheapest 5G" },
+            ]
+        };
 
-/* 📌 Fill ALL category automatically */
-products.all = [
-    ...products.samsung,
-    ...products.apple,
-    ...products.vivo,
-    ...products.oppo,
-    ...products.xiaomi,
-    ...products.realme,
-    ...products.oneplus
-];
+        /* 📌 Fill ALL category automatically */
+        products.all = [
+            ...products.samsung,
+            ...products.apple,
+            ...products.vivo,
+            ...products.oppo,
+            ...products.xiaomi,
+            ...products.realme,
+            ...products.oneplus
+        ];
 
-/* LOAD CATEGORY */
-function loadCategory(cat) {
-    document.getElementById("details-page").style.display = "none";
-    document.getElementById("product-list").style.display = "block";
+        /* LOAD CATEGORY */
+        function loadCategory(cat) {
+            document.getElementById("details-page").style.display = "none";
+            document.getElementById("product-list").style.display = "block";
 
-    document.getElementById("category-title").innerText =
-        cat === "all" ? "ALL PHONES" : cat.toUpperCase();
+            document.getElementById("category-title").innerText =
+                cat === "all" ? "ALL PHONES" : cat.toUpperCase();
 
-    let container = document.getElementById("products-container");
-    container.innerHTML = "";
+            let container = document.getElementById("products-container");
+            container.innerHTML = "";
 
-    products[cat].forEach(p => {
-        container.innerHTML += `
+            products[cat].forEach(p => {
+                container.innerHTML += `
             <div class="product-card" onclick="viewDetails('${cat}', ${p.id})">
                 <img src="${p.image}">
                 <h3>${p.name}</h3>
                 <p>₹${p.price}</p>
             </div>
         `;
-    });
-}
+            });
+        }
 
-/* VIEW DETAILS */
-function viewDetails(category, id) {
-    const product = products[category].find(p => p.id === id);
+        /* VIEW DETAILS */
+        function viewDetails(category, id) {
+            const product = products[category].find(p => p.id === id);
 
-    document.getElementById("product-list").style.display = "none";
+            document.getElementById("product-list").style.display = "none";
 
-    const details = document.getElementById("details-page");
-    details.style.display = "block";
+            const details = document.getElementById("details-page");
+            details.style.display = "block";
 
-    details.innerHTML = `
+            details.innerHTML = `
         <div class="back-btn" onclick="goBack('${category}')">⬅ Back</div>
 
         <h1>${product.name}</h1>
@@ -414,61 +641,63 @@ function viewDetails(category, id) {
         <p><strong>RAM:</strong> ${product.ram}</p>
         <p>${product.desc}</p>
     `;
-}
-
-/* BACK BUTTON */
-function goBack(cat) {
-    loadCategory(cat);
-}
+        }
+        products.all = Object.keys(products)
+            .filter(key => key !== "all")     // "all" ko skip
+            .flatMap(key => products[key]);
+        /* BACK BUTTON */
+        function goBack(cat) {
+            loadCategory(cat);
+        }
         let img1 = document.getElementById("img1")
-    // let prev1 = document.getElementById("prev");
-    // let next = document.getElementById("next");
+        // let prev1 = document.getElementById("prev");
+        // let next = document.getElementById("next");
 
-    let array1 = [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2eFzu9rvXskphgceBqxRK8_x2pCaMJspkjWKRtBsX4O9vMAqncwZ-tCUUS6cCrQtTno0&usqp=CAU",
+        let array1 = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2eFzu9rvXskphgceBqxRK8_x2pCaMJspkjWKRtBsX4O9vMAqncwZ-tCUUS6cCrQtTno0&usqp=CAU",
             "https://img.freepik.com/free-psd/new-smartphone-social-media-cover-design-template_47987-25433.jpg?semt=ais_hybrid&w=740&q=80",
-        "https://img.freepik.com/premium-psd/smart-mobile-promotional-banner-design-template_987701-2646.jpg"];
+            "https://img.freepik.com/premium-psd/smart-mobile-promotional-banner-design-template_987701-2646.jpg"];
 
-    let count1 = 0;
+        let count1 = 0;
 
-    function show(count1) {
-        img1.src = array1[count1];
-        img1.style.width = "100%";
-    }
-
-    show(count1);
-
-    // // 👉 NEXT BUTTON
-    // next.addEventListener("click", function () {
-    //     nextImg();
-    // });
-
-    // // 👉 PREV BUTTON
-    // prev.addEventListener("click", function () {
-    //     prevImg();
-    // });
-
-    // 👉 Next image function
-    function nextImg() {
-        count1++;
-        if (count1 == array1.length) {
-            count1 = 0;
+        function show(count1) {
+            img1.src = array1[count1];
+            img1.style.width = "100%";
         }
-        show(count1);
-    }
 
-    // 👉 Previous image function
-    function prevImg() {
-        if (count1 == 0) {
-            count1 = array1.length - 1;
-        } else {
-            count1--;
+        show(count1);
+
+        // // 👉 NEXT BUTTON
+        // next.addEventListener("click", function () {
+        //     nextImg();
+        // });
+
+        // // 👉 PREV BUTTON
+        // prev.addEventListener("click", function () {
+        //     prevImg();
+        // });
+
+        // 👉 Next image function
+        function nextImg() {
+            count1++;
+            if (count1 == array1.length) {
+                count1 = 0;
+            }
+            show(count1);
         }
-        show(count1);
-    }
 
-    // 👉 AUTO SLIDER (Every 3 Seconds)
-    setInterval(nextImg, 3000);  // Auto change every 3 seconds
+        // 👉 Previous image function
+        function prevImg() {
+            if (count1 == 0) {
+                count1 = array1.length - 1;
+            } else {
+                count1--;
+            }
+            show(count1);
+        }
+
+        // 👉 AUTO SLIDER (Every 3 Seconds)
+        setInterval(nextImg, 3000);  // Auto change every 3 seconds
 
 
     </script>
