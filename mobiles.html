@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
-    <style>
+    <!-- <style>
+
+
         /* GENERAL */
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +22,15 @@
         }
 
         h2 {
-            margin-top: 1rem;
+            margin-top: 11rem;
+        }
+
+        .container {
+            display: flex;
+            /* जब जगह कम हो तो तत्वों को अगली लाइन पर जाने दें */
+            flex-wrap: wrap;
+            /* या तत्वों को सिकुड़ने दें */
+            /* flex-shrink: 1; */
         }
 
         /* CATEGORY BUTTONS — SAME AS BEFORE */
@@ -92,6 +102,137 @@
         }
 
         /* ===============================
+          PRODUCT DETAILS PAGE STYLES
+=============================== */
+        .product-details {
+            padding: 20px;
+            max-width: 900px;
+            /* ✅ MAX WIDTH सेट किया गया */
+            margin: 50px auto;
+            /* ✅ सेंटर में लाने के लिए */
+            text-align: left;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .detail-img {
+            width: 300px;
+            /* ✅ इमेज का साइज़ नियंत्रित किया गया */
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-info {
+            flex-grow: 1;
+        }
+
+        .detail-info h2 {
+            font-size: 28px;
+            /* ✅ हेडिंग साइज़ नियंत्रित किया गया */
+            margin-top: 0;
+            color: #333;
+        }
+
+        .detail-price {
+            font-size: 24px;
+            color: #e63946;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+            margin-bottom: 20px;
+        }
+
+        /* खराब तरीका */
+        .fixed-btn {
+            position: fixed;
+            right: 50px;
+            /* छोटे स्क्रीन पर किनारे से बाहर जा सकता है */
+        }
+
+        /* बेहतर तरीका */
+        @media (max-width: 768px) {
+            .fixed-btn {
+                /* किनारे से दूरी को प्रतिशत में सेट करें */
+                right: 5%;
+            }
+        }
+
+        .add-to-cart-detail {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .blank-visual {
+            display: none !important;
+            /* !important का उपयोग तब करें जब सामान्य display: none काम न कर रहा हो */
+        }
+
+        /* डेस्कटॉप और बड़ी स्क्रीन के लिए डिफ़ॉल्ट स्टाइल */
+        .my-button {
+            width: 200px;
+            padding: 15px 30px;
+        }
+
+        /* 768px से छोटी स्क्रीन (जैसे टैबलेट और फ़ोन) के लिए स्टाइल */
+        @media (max-width: 768px) {
+            .my-button {
+                /* बटन की चौड़ाई कम करें */
+                width: 100%;
+                /* या 90% */
+
+                /* पैडिंग कम करें ताकि बटन छोटा दिखे */
+                padding: 10px 20px;
+            }
+        }
+
+        /* MOBILE VIEW - यदि मोबाइल में भी बड़ा आ रहा है */
+        @media (max-width: 768px) {
+            .detail-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .detail-img {
+                width: 80%;
+                /* मोबाइल पर इमेज को 80% साइज़ दिया गया */
+                max-width: 250px;
+            }
+        }
+
+        /* ===============================
                    MOBILE — 2 Boxes
            =============================== */
         @media (max-width: 600px) {
@@ -114,8 +255,278 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+    </style> -->
+    <style>
+        /* GENERAL */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* ✅ सेंटरिंग के लिए अपडेटेड CSS */
+        /* .section h2 {
+            margin-top: 11rem;
+            text-align: center; /* New Launch हेडिंग को सेंटर करें */
+        /* } */
+        */ .section .line {
+            /* margin: 0 auto 20px; लाइन को सेंटर करें */
+            width: 50px;
+            /* उदाहरण के लिए, लाइन की चौड़ाई */
+            border-bottom: 2px solid #333;
+            /* लाइन का स्टाइल (आपके स्टाइल के अनुसार) */
+        }
+
+        /* ✅ सेंटरिंग के लिए अपडेटेड CSS */
+
+        /* .container {
+            display: flex;
+            flex-wrap: wrap;
+        } */
+
+        /* CATEGORY BUTTONS */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
+            margin-top: 5rem;
+        }
+
+        .categories button {
+            padding: 10px 18px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .categories button:hover {
+            background: #444;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ===============================
+          PRODUCT GRID (MAIN RESPONSIVE FIX)
+            =============================== */
+        #products-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Desktop */
+            gap: 20px;
+            padding: 10px;
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            background: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .product-card h3 {
+            font-size: 13px;
+            margin: 6px 0 3px;
+        }
+
+        .product-card p {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* ===============================
+          PRODUCT DETAILS PAGE STYLES
+=============================== */
+        .product-details {
+            padding: 20px;
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: left;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+            /* शुरुआत में छिपा हुआ */
+        }
+
+        .detail-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .detail-img {
+            width: 300px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-info {
+            flex-grow: 1;
+        }
+
+        .detail-info h2 {
+            font-size: 28px;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .detail-price {
+            font-size: 24px;
+            color: #e63946;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-detail {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        /* ===============================
+              MOBILE — 2 Boxes
+            =============================== */
+        @media (max-width: 600px) {
+            #products-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cards */
+                gap: 15px;
+            }
+
+            .product-card img {
+                height: 120px;
+            }
+
+            .detail-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .detail-img {
+                width: 80%;
+                max-width: 250px;
+            }
+        }
+
+        /* ===============================
+              TABLET — 3 Boxes
+           =============================== */
+        @media (min-width: 600px) and (max-width: 900px) {
+            #products-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ------------------------------------------- */
+        /* RESPONSIVE BUTTON FIX (CSS) - यह मुख्य प्रोडक्ट ग्रिड के लिए है */
+        /* ------------------------------------------- */
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .product-actions .btn {
+            flex: 1 1 0;
+            padding: 8px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .product-actions .add-to-cart {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .product-actions .view-details {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* New Launch बटन के लिए स्टाइल (केवल Add to Cart के लिए) */
+        .card .btn {
+            width: 100%;
+            background-color: #28a745;
+            /* Add to Cart जैसा हरा रंग */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+
+        @media (max-width: 600px) {
+            .product-actions {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .product-actions .btn {
+                width: 100%;
+                flex: none;
+            }
+        }
     </style>
+
 </head>
+
+
 
 <body>
     <header>
@@ -148,8 +559,9 @@
                     <a href="#" class="icon">
                         <i class="fa-solid fa-user"></i>
                     </a>
-                    <a href="#" class="icon icon-active">
+                    <a href="" class="icon icon-active" id="cart-icon">
                         <i class="fa-solid fa-shopping-bag"></i>
+                        
                     </a>
                 </li>
             </ul>
@@ -159,6 +571,8 @@
             </a>
         </nav>
     </header>
+
+    
     <section id="banner">
         <div id="container">
             <img id="img1" src="">
@@ -196,6 +610,9 @@
 
 
     </section>
+
+
+
     <section class="section">
         <div class="container">
             <h2>New Launch</h2>
@@ -477,17 +894,21 @@
 
     </footer>
     <script src="main.js"></script>
-    <script>
+    <!-- <script>
+        /* 📌 7 CATEGORIES + 12-12 PHONES + ALL CATEGORY */
+
+
+
         /* 📌 7 CATEGORIES + 12-12 PHONES + ALL CATEGORY */
         const products = {
 
-            all: [],
+            all: [], // यह नीचे loadCategory('all') के द्वारा भरा जाएगा
 
             samsung: [
                 { id: 1, name: "Samsung S25 Ultra", price: 129999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/t/d/o/-original-imahgfmztybfugwr.jpeg?q=70", desc: "Latest Samsung flagship" },
                 { id: 2, name: "Samsung S24 Ultra", price: 99999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/m/z/-original-imahgfmxumntk7sy.jpeg?q=70", desc: "Flagship beast" },
-                { id: 3, name: "Samsung  s25", price: 88999, ram: "12GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxngbDBhM&usqp=CAc", desc: "Amazing camera phone" },
-                { id: 4, name: "Samsung S25 FE", price: 75999, ram: "8GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxngbDBhM&usqp=CAc", desc: "Fan Edition" },
+                { id: 3, name: "Samsung s25", price: 88999, ram: "12GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxngbDBhM&usqp=CAc", desc: "Amazing camera phone" },
+                { id: 4, name: "Samsung S25 FE", price: 75999, ram: "8GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxJDxKxngbDBhM&usqp=CAc", desc: "Fan Edition" },
                 { id: 5, name: "Samsung A55", price: 32999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Best mid-range" },
                 { id: 6, name: "Samsung A35", price: 26999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Budget king" },
                 { id: 7, name: "Samsung A15", price: 16499, ram: "4GB", image: "https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Samsung-galaxy-a15-5g-blue-6gb-128gb-Back-View.png", desc: "Value for money" },
@@ -514,33 +935,33 @@
             ],
 
             vivo: [
-                { id: 1, name: "Vivo X100 Pro", price: 89999, ram: "12GB", image: "Official New Vivo X200 5G SmartPhone 5800mAh….jpeg", desc: "Zeiss camera" },
-                { id: 2, name: "Vivo X90", price: 59999, ram: "12GB", image: "Das Vivo X90 Pro ist ein Flaggschiff-Smartphone….jpeg", desc: "Flagship" },
-                { id: 3, name: "Vivo V30 Pro", price: 33999, ram: "8GB", image: "", desc: "Premium" },
-                { id: 4, name: "Vivo V29", price: 28999, ram: "8GB", image: "", desc: "Aura light" },
-                { id: 5, name: "Vivo V27", price: 24999, ram: "8GB", image: "", desc: "Stylish" },
-                { id: 6, name: "Vivo Y200", price: 21999, ram: "8GB", image: "", desc: "Great selfie" },
-                { id: 7, name: "Vivo Y100", price: 18999, ram: "6GB", image: "", desc: "Color changing" },
-                { id: 8, name: "Vivo Y36", price: 14999, ram: "8GB", image: "", desc: "90Hz display" },
-                { id: 9, name: "Vivo Y27", price: 12999, ram: "6GB", image: "", desc: "Battery king" },
-                { id: 10, name: "Vivo Y21", price: 10999, ram: "4GB", image: "", desc: "Slim design" },
-                { id: 11, name: "Vivo Y16", price: 9499, ram: "4GB", image: "", desc: "Entry level" },
-                { id: 12, name: "Vivo Y02", price: 7499, ram: "3GB", image: "", desc: "Budget" },
+                { id: 1, name: "Vivo X100 Pro", price: 89999, ram: "12GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Zeiss camera" },
+                { id: 2, name: "Vivo X90", price: 59999, ram: "12GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Flagship" },
+                { id: 3, name: "Vivo V30 Pro", price: 33999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Premium" },
+                { id: 4, name: "Vivo V29", price: 28999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Aura light" },
+                { id: 5, name: "Vivo V27", price: 24999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Stylish" },
+                { id: 6, name: "Vivo Y200", price: 21999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Great selfie" },
+                { id: 7, name: "Vivo Y100", price: 18999, ram: "6GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Color changing" },
+                { id: 8, name: "Vivo Y36", price: 14999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "90Hz display" },
+                { id: 9, name: "Vivo Y27", price: 12999, ram: "6GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Battery king" },
+                { id: 10, name: "Vivo Y21", price: 10999, ram: "4GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Slim design" },
+                { id: 11, name: "Vivo Y16", price: 9499, ram: "4GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Entry level" },
+                { id: 12, name: "Vivo Y02", price: 7499, ram: "3GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Budget" },
             ],
 
             oppo: [
-                { id: 1, name: "Oppo Reno 11 Pro", price: 39999, ram: "12GB", image: "", desc: "Portrait king" },
-                { id: 2, name: "Oppo Reno 10", price: 32999, ram: "8GB", image: "", desc: "Premium design" },
-                { id: 4, name: "Oppo F21 Pro", price: 17999, ram: "8GB", image: "", desc: "Best camera" },
-                { id: 3, name: "Oppo F25 Pro", price: 22999, ram: "8GB", image: "", desc: "Fast charging" },
-                { id: 5, name: "Oppo A79", price: 16999, ram: "8GB", image: "", desc: "Smooth UI" },
-                { id: 6, name: "Oppo A78", price: 15999, ram: "8GB", image: "", desc: "Super VOOC" },
-                { id: 7, name: "Oppo A59", price: 13999, ram: "6GB", image: "", desc: "Great battery" },
-                { id: 8, name: "Oppo A38", price: 12499, ram: "4GB", image: "", desc: "90Hz display" },
-                { id: 9, name: "Oppo A18", price: 10999, ram: "4GB", image: "", desc: "Budget option" },
-                { id: 10, name: "Oppo A17", price: 9999, ram: "4GB", image: "", desc: "Premium look" },
-                { id: 11, name: "Oppo A16", price: 8999, ram: "3GB", image: "", desc: "Affordable" },
-                { id: 12, name: "Oppo A15", price: 7999, ram: "3GB", image: "", desc: "Basic model" },
+                { id: 1, name: "Oppo Reno 11 Pro", price: 39999, ram: "12GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Portrait king" },
+                { id: 2, name: "Oppo Reno 10", price: 32999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Premium design" },
+                { id: 4, name: "Oppo F21 Pro", price: 17999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Best camera" },
+                { id: 3, name: "Oppo F25 Pro", price: 22999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Fast charging" },
+                { id: 5, name: "Oppo A79", price: 16999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Smooth UI" },
+                { id: 6, name: "Oppo A78", price: 15999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Super VOOC" },
+                { id: 7, name: "Oppo A59", price: 13999, ram: "6GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Great battery" },
+                { id: 8, name: "Oppo A38", price: 12499, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "90Hz display" },
+                { id: 9, name: "Oppo A18", price: 10999, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Budget option" },
+                { id: 10, name: "Oppo A17", price: 9999, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Premium look" },
+                { id: 11, name: "Oppo A16", price: 8999, ram: "3GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Affordable" },
+                { id: 12, name: "Oppo A15", price: 7999, ram: "3GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Basic model" },
             ],
 
             xiaomi: [
@@ -578,77 +999,127 @@
                 { id: 2, name: "OnePlus 11", price: 54999, ram: "12GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Hasselblad" },
                 { id: 3, name: "OnePlus 10 Pro", price: 38999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Smooth UI" },
                 { id: 4, name: "OnePlus 10T", price: 34999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Gaming phone" },
-                { id: 5, name: "OnePlus Nord 3", price: 29999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Powerful" },
-                { id: 6, name: "OnePlus Nord 2T", price: 28999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Mid-range star" },
-                { id: 7, name: "OnePlus Nord CE 3", price: 24999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Value phone" },
-                { id: 8, name: "OnePlus Nord CE 2", price: 18999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Good battery" },
-                { id: 9, name: "OnePlus Nord CE 2 Lite", price: 16999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Great entry" },
-                { id: 10, name: "OnePlus Nord CE", price: 14999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Affordable" },
-                { id: 11, name: "OnePlus Nord N20", price: 12999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Budget" },
-                { id: 12, name: "OnePlus Nord N10", price: 11999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Cheapest 5G" },
-            ]
+                { id: 5, name: "OnePlus Nord 3", price: 29999, ram: "12GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Midrange beast" },
+                { id: 6, name: "OnePlus Nord CE 3", price: 25999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Good performance" },
+                { id: 7, name: "OnePlus Nord CE 2", price: 21999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Value for money" },
+                { id: 8, name: "OnePlus Nord CE 4 Lite", price: 19999, ram: "6GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Lite version" },
+                { id: 9, name: "OnePlus Nord N300", price: 16999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Budget 5G" },
+                { id: 10, name: "OnePlus Nord N200", price: 14999, ram: "4GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Entry level" },
+                { id: 11, name: "OnePlus 9RT", price: 36999, ram: "12GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Snapdragon 888" },
+                { id: 12, name: "OnePlus 8T", price: 31999, ram: "8GB", image: "https://i.imgur.com/18G4tqZ.png", desc: "Fluid Display" },
+            ],
         };
 
-        /* 📌 Fill ALL category automatically */
-        products.all = [
-            ...products.samsung,
-            ...products.apple,
-            ...products.vivo,
-            ...products.oppo,
-            ...products.xiaomi,
-            ...products.realme,
-            ...products.oneplus
-        ];
+        // सभी प्रोडक्ट्स को 'all' कैटेगरी में भरें
+        function setupAllProducts() {
+            products.all = [];
+            for (const category in products) {
+                if (category !== 'all') {
+                    products.all.push(...products[category]);
+                }
+            }
+        }
+        setupAllProducts();
 
-        /* LOAD CATEGORY */
-        function loadCategory(cat) {
-            document.getElementById("details-page").style.display = "none";
-            document.getElementById("product-list").style.display = "block";
 
-            document.getElementById("category-title").innerText =
-                cat === "all" ? "ALL PHONES" : cat.toUpperCase();
+        // PRODUCTS को लोड करने का फंक्शन
+        const productsContainer = document.getElementById("products-container");
+        const categoryTitle = document.getElementById("category-title");
 
-            let container = document.getElementById("products-container");
-            container.innerHTML = "";
+        function loadCategory(category) {
+            // अगर category undefined है तो 'all' लोड करें
+            const selectedProducts = products[category] || products.all;
+            productsContainer.innerHTML = ''; // कंटेनर को साफ करें
 
-            products[cat].forEach(p => {
-                container.innerHTML += `
-            <div class="product-card" onclick="viewDetails('${cat}', ${p.id})">
-                <img src="${p.image}">
-                <h3>${p.name}</h3>
-                <p>₹${p.price}</p>
-            </div>
-        `;
+            categoryTitle.textContent = category === 'all' ? 'All Products' : category.charAt(0).toUpperCase() + category.slice(1) + ' Phones';
+
+            selectedProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>₹${product.price.toLocaleString('en-IN')}</p>
+                <button class="view-details-btn" onclick="viewDetails('${category}', ${product.id})">View Details</button>
+            `;
+                productsContainer.appendChild(card);
             });
         }
 
-        /* VIEW DETAILS */
+        // PRODUCT DETAILS को दिखाने का फंक्शन
         function viewDetails(category, id) {
-            const product = products[category].find(p => p.id === id);
+            const selectedCategory = products[category] || products.all;
+            const product = selectedCategory.find(p => p.id === id);
 
+            if (!product) {
+                console.error('Product not found for category:', category, 'id:', id);
+                return;
+            }
+
+            // प्रोडक्ट लिस्ट को छिपाएँ और डिटेल्स पेज को दिखाएँ
             document.getElementById("product-list").style.display = "none";
+            document.getElementById("category-title").style.display = "none";
+            document.querySelector(".categories").style.display = "none";
 
             const details = document.getElementById("details-page");
             details.style.display = "block";
 
+            // Details Page का HTML
             details.innerHTML = `
-        <div class="back-btn" onclick="goBack('${category}')">⬅ Back</div>
-
-        <h1>${product.name}</h1>
-        <img src="${product.image}">
-        <h2>₹${product.price}</h2>
-
-        <p><strong>RAM:</strong> ${product.ram}</p>
-        <p>${product.desc}</p>
-    `;
+            <div class="detail-card">
+                <button onclick="document.getElementById('product-list').style.display='block'; document.getElementById('details-page').style.display='none'; document.getElementById('category-title').style.display='block'; document.querySelector('.categories').style.display='flex';" class="back-button">
+                    &#8592; Back to Products
+                </button>
+                <div class="detail-content-wrapper">
+                    <img src="${product.image}" alt="${product.name}" class="detail-img">
+                    <div class="detail-info">
+                        <h2>${product.name}</h2>
+                        <p class="detail-price">Price: ₹${product.price.toLocaleString('en-IN')}</p>
+                        <p><strong>RAM:</strong> ${product.ram}</p>
+                        <p><strong>Description:</strong> ${product.desc}</p>
+                        <button class="add-to-cart-detail" style="width:100px;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        `;
         }
-        products.all = Object.keys(products)
-            .filter(key => key !== "all")     // "all" ko skip
-            .flatMap(key => products[key]);
-        /* BACK BUTTON */
-        function goBack(cat) {
-            loadCategory(cat);
-        }
+
+
+        // पेज लोड होने पर 'all' कैटेगरी लोड करें
+        document.addEventListener('DOMContentLoaded', () => {
+            // सुनिश्चित करें कि डिटेल्स पेज शुरू में छिपा हुआ हो
+            document.getElementById("details-page").style.display = "none";
+            loadCategory('all');
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         let img1 = document.getElementById("img1")
         // let prev1 = document.getElementById("prev");
         // let next = document.getElementById("next");
@@ -700,7 +1171,294 @@
         setInterval(nextImg, 3000);  // Auto change every 3 seconds
 
 
+    </script> -->
+    <script>
+        /* 📌 7 CATEGORIES + 12-12 PHONES + ALL CATEGORY */
+        const products = {
+
+            all: [], // यह नीचे initializeProducts() के द्वारा भरा जाएगा
+
+            samsung: [
+                { id: 1, name: "Samsung S25 Ultra", price: 129999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/t/d/o/-original-imahgfmztybfugwr.jpeg?q=70", desc: "Latest Samsung flagship" },
+                { id: 2, name: "Samsung S24 Ultra", price: 99999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/m/z/-original-imahgfmxumntk7sy.jpeg?q=70", desc: "Flagship beast" },
+                { id: 3, name: "Samsung s25", price: 88999, ram: "12GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxngbDBhM&usqp=CAc", desc: "Amazing camera phone" },
+                { id: 4, name: "Samsung S25 FE", price: 75999, ram: "8GB", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQqg279rH_DPNIYe6AIPHgfjRrJ8C0zFyh1lqFu9RmF-M1R5RzVJOaHRToKpww2HrjTSaS25toMsWSZYCUd75osDTLyGsEF5j1-zEvU3S9M5fwLBM1LSL-IYpdgExxJDxKxJDxKxngbDBhM&usqp=CAc", desc: "Fan Edition" },
+                { id: 5, name: "Samsung A55", price: 32999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Best mid-range" },
+                { id: 6, name: "Samsung A35", price: 26999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Budget king" },
+                { id: 7, name: "Samsung A15", price: 16499, ram: "4GB", image: "https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Samsung-galaxy-a15-5g-blue-6gb-128gb-Back-View.png", desc: "Value for money" },
+                { id: 8, name: "Samsung M34", price: 16999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "6000mAh battery" },
+                { id: 9, name: "Samsung M14", price: 12999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "Budget phone" },
+                { id: 10, name: "Samsung F54", price: 29999, ram: "8GB", image: "https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Samsung-galaxy-a15-5g-blue-6gb-128gb-Back-View.png", desc: "Premium design" },
+                { id: 11, name: "Samsung F34", price: 18999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/2/s/8/-original-imahgy26fu3z2hez.jpeg?q=70", desc: "Best for students" },
+                { id: 12, name: "Samsung M04", price: 8999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/t/g/-original-imaha58mcdsfygaq.jpeg?q=70", desc: "Entry-level" },
+            ],
+
+            apple: [
+                { id: 1, name: "iPhone 17 Pro Max", price: 159999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/v/a/-original-imahft5nxmyqndhf.jpeg?q=70", desc: "Titanium body" },
+                { id: 2, name: "iPhone 16 Pro", price: 134999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/v/a/b/-original-imahggexextjawug.jpeg?q=70", desc: "A18 Pro chip" },
+                { id: 3, name: "iPhone 15", price: 79999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/c/k/-original-imagtc5fuzkvczr7.jpeg?q=70", desc: "Dynamic island" },
+                { id: 4, name: "iPhone 14", price: 64999, ram: "6GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/b/u/f/-original-imaghxa5hvapbfds.jpeg?q=70", desc: "Value flagship" },
+                { id: 5, name: "iPhone 13", price: 52999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/ktketu80/mobile/6/n/d/iphone-13-mlpg3hn-a-apple-original-imag6vpyghayhhrh.jpeg?q=70", desc: "Evergreen model" },
+                { id: 6, name: "iPhone 12", price: 41999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/kg8avm80/mobile/y/7/n/apple-iphone-12-dummyapplefsn-original-imafwg8dpyjvgg3j.jpeg?q=70", desc: "Slim design" },
+                { id: 7, name: "iPhone 11", price: 38999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/k2jbyq80pkrrdj/mobile-refurbished/x/j/s/iphone-11-128-d-mwm02hn-a-apple-0-original-imafkg242ugz8hwc.jpeg?q=70", desc: "Best budget iPhone" },
+                { id: 8, name: "iPhone SE", price: 29999, ram: "4GB", image: "https://rukminim2.flixcart.com/image/312/312/k9loccw0/mobile/6/b/z/apple-iphone-se-mxd12hn-a-original-imafrcqf9nze6evk.jpeg?q=70", desc: "Compact phone" },
+                { id: 9, name: "iPhone 17", price: 124999, ram: "16GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/c/v/v/-original-imahgfmypevfehpc.jpeg?q=70", desc: "Liquid Retina" },
+                { id: 10, name: "iPhone Air", price: 122999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/r/w/-original-imahft57defk9qtu.jpeg?q=70", desc: "OLED display" },
+                { id: 11, name: "iPhone 16 Pro Max", price: 124999, ram: "12GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/r/8/8/-original-imahggevcrkzezzv.jpeg?q=70", desc: "Big display" },
+                { id: 12, name: "iPhone 16E ", price: 53999, ram: "8GB", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/1/p/c/-original-imah9khhnfvstqka.jpeg?q=70", desc: "Iconic model" },
+            ],
+
+            vivo: [
+                { id: 1, name: "Vivo X100 Pro", price: 89999, ram: "12GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Zeiss camera" },
+                { id: 2, name: "Vivo X90", price: 59999, ram: "12GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Flagship" },
+                { id: 3, name: "Vivo V30 Pro", price: 33999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Premium" },
+                { id: 4, name: "Vivo V29", price: 28999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Aura light" },
+                { id: 5, name: "Vivo V27", price: 24999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Stylish" },
+                { id: 6, name: "Vivo Y200", price: 21999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Great selfie" },
+                { id: 7, name: "Vivo Y100", price: 18999, ram: "6GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Color changing" },
+                { id: 8, name: "Vivo Y36", price: 14999, ram: "8GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "90Hz display" },
+                { id: 9, name: "Vivo Y27", price: 12999, ram: "6GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Battery king" },
+                { id: 10, name: "Vivo Y21", price: 10999, ram: "4GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Slim design" },
+                { id: 11, name: "Vivo Y16", price: 9499, ram: "4GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Entry level" },
+                { id: 12, name: "Vivo Y02", price: 7499, ram: "3GB", image: "https://i.imgur.com/8Qp4R7t.png", desc: "Budget" },
+            ],
+
+            oppo: [
+                { id: 1, name: "Oppo Reno 11 Pro", price: 39999, ram: "12GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Portrait king" },
+                { id: 2, name: "Oppo Reno 10", price: 32999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Premium design" },
+                { id: 4, name: "Oppo F21 Pro", price: 17999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Best camera" },
+                { id: 3, name: "Oppo F25 Pro", price: 22999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Fast charging" },
+                { id: 5, name: "Oppo A79", price: 16999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Smooth UI" },
+                { id: 6, name: "Oppo A78", price: 15999, ram: "8GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Super VOOC" },
+                { id: 7, name: "Oppo A59", price: 13999, ram: "6GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Great battery" },
+                { id: 8, name: "Oppo A38", price: 12499, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "90Hz display" },
+                { id: 9, name: "Oppo A18", price: 10999, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Budget option" },
+                { id: 10, name: "Oppo A17", price: 9999, ram: "4GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Premium look" },
+                { id: 11, name: "Oppo A16", price: 8999, ram: "3GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Affordable" },
+                { id: 12, name: "Oppo A15", price: 7999, ram: "3GB", image: "https://i.imgur.com/Y1gR3jP.png", desc: "Basic model" },
+            ],
+
+            xiaomi: [
+                { id: 1, name: "Xiaomi 14 Ultra", price: 99999, ram: "16GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Insane camera" },
+                { id: 2, name: "Xiaomi 14", price: 69999, ram: "12GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Flagship killer" },
+                { id: 3, name: "Xiaomi 13 Pro", price: 59999, ram: "12GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Leica camera" },
+                { id: 4, name: "Xiaomi 12 Pro", price: 44999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Premium feel" },
+                { id: 5, name: "Xiaomi 11T Pro", price: 34999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "120W charging" },
+                { id: 6, name: "Redmi Note 13 Pro+", price: 30999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Curved display" },
+                { id: 7, name: "Redmi Note 13 Pro", price: 24999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Best midrange" },
+                { id: 8, name: "Redmi Note 12 Pro", price: 20999, ram: "6GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Value for money" },
+                { id: 9, name: "Poco X6 Pro", price: 24999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Gaming beast" },
+                { id: 10, name: "Poco X5 Pro", price: 18999, ram: "8GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Great display" },
+                { id: 11, name: "Poco M6 Pro", price: 12999, ram: "4GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Budget" },
+                { id: 12, name: "Redmi 12", price: 9999, ram: "4GB", image: "https://i.imgur.com/1pZ0L7p.png", desc: "Stylish" },
+            ],
+
+            realme: [
+                { id: 1, name: "Realme GT 5 Pro", price: 44999, ram: "12GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Flagship Realme" },
+                { id: 2, name: "Realme GT Neo 5", price: 37999, ram: "12GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Fastest charging" },
+                { id: 3, name: "Realme 12 Pro+", price: 28999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Periscope Zoom" },
+                { id: 4, name: "Realme 11 Pro+", price: 24999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Curved display" },
+                { id: 5, name: "Realme 11", price: 18999, ram: "8GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Premium design" },
+                { id: 6, name: "Realme 10 Pro", price: 16999, ram: "6GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "120Hz display" },
+                { id: 7, name: "Realme C67", price: 13999, ram: "6GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Mini Capsule" },
+                { id: 8, name: "Realme C55", price: 11999, ram: "4GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Budget pick" },
+                { id: 9, name: "Realme C53", price: 10999, ram: "4GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Best camera" },
+                { id: 10, name: "Realme Narzo N65", price: 9999, ram: "4GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Gaming" },
+                { id: 11, name: "Realme Narzo N53", price: 8999, ram: "4GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Slim" },
+                { id: 12, name: "Realme C30", price: 6999, ram: "2GB", image: "https://i.imgur.com/UWcjjDW.png", desc: "Entry-level" },
+            ],
+
+            oneplus: [
+                { id: 1, name: "OnePlus 12", price: 64999, ram: "12GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Flagship" },
+                { id: 2, name: "OnePlus 11R", price: 39999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Performance" },
+                { id: 3, name: "OnePlus Nord 3", price: 28999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Fluid display" },
+                { id: 4, name: "OnePlus Nord CE 3", price: 24999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Lightweight" },
+                { id: 5, name: "OnePlus Nord CE 2", price: 21999, ram: "6GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Fast charging" },
+                { id: 6, name: "OnePlus Nord CE 4 Lite", price: 18999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "New release" },
+                { id: 7, name: "OnePlus Nord N300", price: 16999, ram: "4GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "North America" },
+                { id: 8, name: "OnePlus 10R", price: 32999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Best for gaming" },
+                { id: 9, name: "OnePlus Ace 3", price: 36999, ram: "12GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "High performance" },
+                { id: 10, name: "OnePlus 9RT", price: 30999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Compact" },
+                { id: 11, name: "OnePlus Nord 2T", price: 26999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Great camera" },
+                { id: 12, name: "OnePlus Nord CE 3 Lite", price: 17999, ram: "8GB", image: "https://i.imgur.com/fK5eU2q.png", desc: "Affordable 5G" },
+            ]
+        };
+
+
+        const productsContainer = document.getElementById('products-container');
+        const detailsPage = document.getElementById('details-page');
+        const productList = document.getElementById('product-list');
+        const categoryTitle = document.getElementById('category-title');
+
+
+        /**
+         * उत्पादों को प्रदर्शित (render) करता है
+         * @param {Array} currentProducts - प्रदर्शित करने के लिए उत्पादों की सूची
+         */
+        function displayProducts(currentProducts) {
+            productsContainer.innerHTML = ''; // पिछली सामग्री को साफ़ करें
+
+            currentProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                // Product Card HTML Structure (इसमें अभी भी दोनों बटन हैं क्योंकि यह मुख्य शॉप ग्रिड है)
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>₹${product.price.toLocaleString('en-IN')}</p>
+                    <div class="product-actions">
+                        <button class="btn view-details" data-product-id="${product.id}" data-category="${product.category}">View Details</button>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                `;
+
+                productsContainer.appendChild(productCard);
+            });
+
+            // 'View Details' बटन पर इवेंट लिसनर जोड़ें
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    const category = this.getAttribute('data-category');
+
+                    // इस उत्पाद को ढूंढें और विवरण दिखाएँ
+                    const selectedProduct = products[category].find(p => p.id === productId);
+                    if (selectedProduct) {
+                        showDetails(selectedProduct);
+                    }
+                });
+            });
+
+            // लिस्ट और डिटेल्स व्यू को नियंत्रित करें
+            productList.style.display = 'block';
+            detailsPage.style.display = 'none';
+            categoryTitle.textContent = 'Shop Products';
+        }
+
+
+        /**
+         * किसी विशिष्ट श्रेणी के उत्पादों को लोड करता है
+         * @param {string} category - श्रेणी का नाम ('samsung', 'apple', 'all', आदि)
+         */
+        window.loadCategory = function (category) {
+            const categoryName = category.toLowerCase();
+
+            if (products[categoryName]) {
+                categoryTitle.textContent = categoryName === 'all' ? 'All Products' : `${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Phones`;
+                displayProducts(products[categoryName]);
+            } else {
+                productsContainer.innerHTML = '<p>No products found in this category.</p>';
+                productList.style.display = 'block';
+                detailsPage.style.display = 'none';
+                categoryTitle.textContent = 'Shop Products';
+            }
+        }
+
+
+        /**
+         * उत्पाद का विवरण पृष्ठ प्रदर्शित करता है
+         * @param {Object} product - चयनित उत्पाद वस्तु
+         */
+        function showDetails(product) {
+            detailsPage.innerHTML = `
+                <div class="detail-card">
+                    <button class="back-button" onclick="loadCategory('all')">← Back to Shop</button>
+                    <div class="detail-content-wrapper">
+                        <img class="detail-img" src="${product.image}" alt="${product.name}">
+                        <div class="detail-info">
+                            <h2>${product.name}</h2>
+                            <p class="detail-price">Price: ₹${product.price.toLocaleString('en-IN')}</p>
+                            <p><strong>RAM:</strong> ${product.ram}</p>
+                            <p><strong>Description:</strong> ${product.desc}</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <button class="add-to-cart-detail">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            productList.style.display = 'none';
+            detailsPage.style.display = 'block';
+            categoryTitle.textContent = product.name;
+        }
+
+        /**
+         * सभी श्रेणियों से उत्पादों को एकत्र करता है और पेज लोड होने पर 'all' श्रेणी बनाता है।
+         */
+        function initializeProducts() {
+            const allProducts = [];
+            for (const category in products) {
+                if (category !== 'all') {
+                    // प्रत्येक उत्पाद में उसकी श्रेणी (category) जोड़ें
+                    products[category].forEach(product => {
+                        product.category = category;
+                        allProducts.push(product);
+                    });
+                }
+            }
+            products.all = allProducts;
+
+            // पेज लोड होने पर 'all' श्रेणी लोड करें
+            loadCategory('all');
+        }
+
+        // जब पूरा DOM लोड हो जाए, तो initializeProducts() को कॉल करें।
+        document.addEventListener('DOMContentLoaded', initializeProducts);
+
+        let img1 = document.getElementById("img1")
+        // let prev1 = document.getElementById("prev");
+        // let next = document.getElementById("next");
+
+        let array1 = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2eFzu9rvXskphgceBqxRK8_x2pCaMJspkjWKRtBsX4O9vMAqncwZ-tCUUS6cCrQtTno0&usqp=CAU",
+            "https://img.freepik.com/free-psd/new-smartphone-social-media-cover-design-template_47987-25433.jpg?semt=ais_hybrid&w=740&q=80",
+            "https://img.freepik.com/premium-psd/smart-mobile-promotional-banner-design-template_987701-2646.jpg"];
+
+        let count1 = 0;
+
+        function show(count1) {
+            img1.src = array1[count1];
+            img1.style.width = "100%";
+        }
+
+        show(count1);
+
+        // // 👉 NEXT BUTTON
+        // next.addEventListener("click", function () {
+        //     nextImg();
+        // });
+
+        // // 👉 PREV BUTTON
+        // prev.addEventListener("click", function () {
+        //     prevImg();
+        // });
+
+        // 👉 Next image function
+        function nextImg() {
+            count1++;
+            if (count1 == array1.length) {
+                count1 = 0;
+            }
+            show(count1);
+        }
+
+        // 👉 Previous image function
+        function prevImg() {
+            if (count1 == 0) {
+                count1 = array1.length - 1;
+            } else {
+                count1--;
+            }
+            show(count1);
+        }
+
+        // 👉 AUTO SLIDER (Every 3 Seconds)
+        setInterval(nextImg, 3000);  // Auto change every 3 seconds
+     
+
+        
     </script>
+
 </body>
 
 </html>
