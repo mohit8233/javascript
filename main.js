@@ -65,4 +65,26 @@ hamburger.addEventListener("click", ()=>{
     setInterval(nextImg, 3000);  // Auto change every 3 seconds
 
 
-    
+    // fashion section js 
+
+    let fashion = document.getElementById("fashion")
+
+     fashion.style.backgroundImage = "url('detailsimg.png')"
+     fashion.style.backgroundRepeat = "no-reapt"
+     fashion.style.backgroundSize = "cover"
+
+
+
+
+
+
+
+
+
+
+
+    //  add to cart 
+
+    function addToCart(productName) {
+  alert(productName + " added to cart 🛒");
+}
