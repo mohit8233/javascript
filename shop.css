@@ -161,6 +161,139 @@ h1 {
   color: #888;
   margin-left: 8px;
 }
+.trust-section {
+  padding: 70px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.trust-section h2 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.trust-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.trust-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.trust-card:hover {
+  transform: translateY(-6px);
+}
+
+.trust-logo {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.trust-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.trust-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.rating {
+  margin-top: 40px;
+  font-weight: bold;
+  color: #333;
+}
+/* REVIEWS */
+.reviews-section {
+  padding: 60px 20px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-card p {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.review-card h4 {
+  color: #2563eb;
+}
+
+/* OFFER */
+.offer-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+}
+
+.offer-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.offer-box input {
+  padding: 12px;
+  width: 260px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.offer-box button {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #22c55e;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.offer-box button:hover {
+  background: #16a34a;
+}
 
 /* .product-card button {
   margin-top: 15px;
@@ -306,6 +439,32 @@ h1 {
     font-size: 10px;
     padding: 10px 18px;
   }
+  .trust-section h2 {
+    font-size: 26px;
+  }
+  .trust-subtitle{
+    justify-self: center;
+  }
+
+  .trust-card {
+    padding: 25px 15px;
+  }
+
+  .icon {
+    font-size: 34px;
+  }
+   .reviews-section h2,
+  .offer-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .reviews-card p {
+    font-size: 0.95rem;
+  }
+
+  .offer-section p {
+    font-size: 0.9rem;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -325,3 +484,50 @@ h1 {
     max-width: 80%;
   }
 }
+/* ===========================
+   MEDIA QUERIES
+=========================== */
+@media (max-width: 1024px) {
+  /* Reviews grid: 2 columns */
+  .reviews-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  /* Offer input width adjust */
+  .offer-box input {
+    width: 200px;
+  }
+
+  .offer-box button {
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Reviews grid: 1 column */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Heading size adjust */
+  .reviews-section h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Offer section text & input/button adjust */
+  .offer-section h2 {
+    font-size: 2rem;
+  }
+
+  .offer-section p {
+    font-size: 1rem;
+  }
+
+  .offer-box input,
+  .offer-box button {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px;
+  }
+}
+

@@ -76,14 +76,47 @@ hamburger.addEventListener("click", ()=>{
 
 
 
+// ----------------------------------------------------
+
+// trust-section 
+const cards = document.querySelectorAll(".trust-card");
+
+window.addEventListener("scroll", () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
+});
+
+cards.forEach(card => {
+  card.style.opacity = "0";
+  card.style.transform = "translateY(30px)";
+  card.style.transition = "0.6s ease";
+});
+
+// --------------------------------------------------------
 
 
 
+// Select the input and button in offer section
+const offerInput = document.querySelector('.offer-box input');
+const offerButton = document.querySelector('.offer-box button');
+
+offerButton.addEventListener('click', () => {
+  const email = offerInput.value.trim();
+
+  if(email) {
+    alert(`Thank you! A 10% discount code has been sent to ${email}`);
+    offerInput.value = ''; // clear input
+  } else {
+    alert('Please enter a valid email address.');
+  }
+});
 
 
-
-
-    //  add to cart 
 
   
 
