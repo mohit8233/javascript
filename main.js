@@ -85,6 +85,65 @@ hamburger.addEventListener("click", ()=>{
 
     //  add to cart 
 
-    function addToCart(productName) {
-  alert(productName + " added to cart 🛒");
+  
+
+
+
+// CART DATA
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// UPDATE CART COUNT
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const cartCount = document.getElementById("cart-count");
+  if (cartCount) cartCount.innerText = count;
 }
+updateCartCount();
+
+// ADD TO CART FUNCTION (GLOBAL)
+function addProductToCart(product) {
+  const existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+// BUTTON CLICK HANDLE
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("add-to-cart")) {
+
+    const card = e.target.closest(".card, .product-card");
+
+    const name =
+      card.querySelector(".title")?.innerText ||
+      card.querySelector("h3")?.innerText;
+
+    const priceText =
+      card.querySelector(".amount")?.innerText ||
+      card.querySelector(".price")?.innerText;
+
+    const price = parseInt(priceText.replace(/[^0-9]/g, ""));
+
+    const image = card.querySelector("img").src;
+
+    addProductToCart({
+      name,
+      price,
+      image,
+      qty: 1
+    });
+
+    // UI feedback
+    e.target.innerText = "Added ✔";
+    setTimeout(() => {
+      e.target.innerText = "Add to Cart";
+    }, 1200);
+  }
+});
+

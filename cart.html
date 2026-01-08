@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar flex container">
+            <a href="" class="logo">
+                Shop<span>Nexa</span>
+            </a>
+
+            <ul class="navlist flex">
+                <li>
+                    <a href="index.html" class="link ">Home</a>
+                </li>
+                <li>
+                    <a href="shop.html" class="link link-active">shop</a>
+                </li>
+                <li>
+                    <a href="" class="link">page</a>
+                </li>
+                <li>
+                    <a href="" class="link">blog</a>
+                </li>
+                <li>
+                    <a href="" class="link">contact</a>
+                </li>
+
+                <li class="nav-icons flex">
+                    <a href="#" class="icon ">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="login.html" class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <a href="#" class="icon icon-active">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="#" class="hamburger">
+                <i class="fa-solid fa-bars bar-icon"></i>
+            </a>
+        </nav>
+    </header>
+    <section class="cart-header">
+  <h1>🛒 Your Cart</h1>
+  <a href="index.html">← Continue Shopping</a>
+
+    </section>
+
+<section class="cart-container">
+  <div id="cart-items"></div>
+
+  <div class="cart-summary">
+    <h3>Order Summary</h3>
+    <p>Total Items: <span id="total-items">0</span></p>
+    <p>Total Price: ₹<span id="total-price">0</span></p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</section>
+<script src="js/cart.js"></script>
+</body>
+</html>
