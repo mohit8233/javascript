@@ -120,4 +120,33 @@ offerButton.addEventListener('click', () => {
 
   
 
+  const searchIcon = document.getElementById("searchIcon");
+  const searchInput = document.getElementById("searchInput");
+
+  searchIcon.addEventListener("click", () => {
+    searchInput.style.display = "block";
+    searchInput.focus();
+  });
+
+
+ 
+const search = document.getElementById("searchInput");
+const products = document.querySelectorAll(".card");
+
+search.addEventListener("keyup", () => {
+  const value = search.value.toLowerCase();
+
+  products.forEach(product => {
+    const name = product
+      .querySelector(".product-name")
+      .innerText
+      .toLowerCase();
+
+    if (name.includes(value)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
 
