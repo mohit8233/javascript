@@ -148,7 +148,13 @@ function addProductToCart(product) {
 }
 
 // BUTTON CLICK HANDLE
-document.addEventListener("click", function (e) {
+
+  document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".add-to-cart");
+  if (!btn) return;
+
+  console.log("Add to cart clicked"); // 👈 ADD THIS
+
   if (e.target.classList.contains("add-to-cart")) {
 
     const card = e.target.closest(".card, .product-card");
