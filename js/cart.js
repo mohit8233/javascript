@@ -4,6 +4,11 @@ const cartItems = document.getElementById("cart-items");
 const totalItemsEl = document.getElementById("total-items");
 const totalPriceEl = document.getElementById("total-price");
 
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// RENDER CART
 function renderCart() {
   cartItems.innerHTML = "";
 
@@ -48,3 +53,25 @@ function renderCart() {
   totalItemsEl.innerText = totalItems;
   totalPriceEl.innerText = totalPrice;
 }
+
+// CHANGE QTY
+function changeQty(index, change) {
+  cart[index].qty += change;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  saveCart();
+  renderCart();
+}
+
+// REMOVE ITEM
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  renderCart();
+}
+
+// INITIAL LOAD
+renderCart();
