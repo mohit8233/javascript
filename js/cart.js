@@ -13,7 +13,11 @@ function renderCart() {
   cartItems.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty 😢</p>";
+    cartItems.innerHTML = `
+      <p style="grid-column:1/-1;text-align:center;padding:40px;font-size:20px;">
+        🛒 Your cart is empty
+      </p>
+    `;
     totalItemsEl.innerText = 0;
     totalPriceEl.innerText = 0;
     return;
@@ -26,32 +30,52 @@ function renderCart() {
     totalItems += item.qty;
     totalPrice += item.price * item.qty;
 
-    cartItems.innerHTML += `
-      <div class="cart-card">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="card-content">
-          <p class="title">${item.name}</p>
+    const card = document.createElement("div");
+    card.className = "cart-card";
 
-          <div class="price">
-            <span class="amount">₹${item.price}</span>
-          </div>
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
 
-          <div class="qty-control">
-            <button onclick="changeQty(${index}, -1)">−</button>
-            <span>${item.qty}</span>
-            <button onclick="changeQty(${index}, 1)">+</button>
-          </div>
+      <div class="card-content">
+        <p class="title">${item.name}</p>
 
-          <button class="remove-btn" onclick="removeItem(${index})">
-            Remove
-          </button>
+        <div class="price">
+          <span class="amount">₹${item.price}</span>
         </div>
+
+        <div class="qty-control">
+          <button class="qty-btn" data-index="${index}" data-change="-1">−</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" data-index="${index}" data-change="1">+</button>
+        </div>
+
+        <button class="remove-btn" data-remove="${index}">
+          Remove
+        </button>
       </div>
     `;
+
+    cartItems.appendChild(card);
   });
 
   totalItemsEl.innerText = totalItems;
   totalPriceEl.innerText = totalPrice;
+
+  // EVENTS
+  document.querySelectorAll(".qty-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      const change = Number(btn.getAttribute("data-change"));
+      changeQty(index, change);
+    });
+  });
+
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-remove");
+      removeItem(index);
+    });
+  });
 }
 
 // CHANGE QTY

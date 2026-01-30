@@ -1,7 +1,7 @@
 /* ========== GLOBAL ========== */
 body{
-  background:linear-gradient(135deg,#0f172a,#020617);
-  color:#fff;
+  background:linear-gradient(135deg,#d2d5dc,#d4d7e3);
+  color:#030303;
 }
 
 /* Header fixed support */
@@ -25,7 +25,7 @@ body{
 
 .hero-section p{
   margin-top:10px;
-  color:#cbd5f5;
+  color:#2649bc;
 }
 
 /* ========== CONTACT SECTION ========== */
@@ -56,7 +56,7 @@ body{
   margin-bottom:10px;
 }
 .contact-info p{
-  color:#cbd5f5;
+  color:#4f6ccc;
   margin-bottom:25px;
 }
 
@@ -80,13 +80,15 @@ body{
 
 /* Right Form */
 .contact-form{
-  background:rgba(255,255,255,0.08);
+  background:rgb(11, 14, 37);
   padding:30px;
+  color: #ffffff;
   border-radius:16px;
 }
 
 .contact-form h3{
   margin-bottom:20px;
+  color: #cbd5f5;
 }
 
 .form-group{margin-bottom:15px;}
@@ -142,7 +144,7 @@ button:hover{
 }
 
 .how-buy-section p{
-  color:#cbd5f5;
+  color:#6b87e4;
   margin:15px 0 40px;
 }
 
@@ -155,7 +157,7 @@ button:hover{
 }
 
 .how-buy-section .step-box{
-  background:rgba(255,255,255,0.08);
+  background:rgba(3, 1, 1, 0.893);
   padding:25px;
   border-radius:16px;
 }
@@ -171,7 +173,7 @@ button:hover{
 }
 
 .map-section p{
-  color:#cbd5f5;
+  color:#7896f9;
   text-align:center;
   margin:10px 0 30px;
 }
